@@ -1,0 +1,25 @@
+{
+  "name": "playback",
+  "version": "1.0.0",
+  "description": "Collects data with timestamps and generates a playback",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proxtx/Playback.git"
+  },
+  "author": "Proxtx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Proxtx/Playback/issues"
+  },
+  "homepage": "https://github.com/Proxtx/Playback#readme",
+  "dependencies": {
+    "@proxtx/config": "^1.0.2",
+    "@proxtx/framework": "^1.5.6",
+    "@proxtx/material": "^1.1.8"
+  }
+}

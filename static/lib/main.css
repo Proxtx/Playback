@@ -1,0 +1,58 @@
+:root {
+  --borderRadius: 8px;
+  --accentColor: #558b6e;
+  --backgroundColor: #f3f8f2;
+  --boxColor: #ebe9e9;
+  --textColor: #333333;
+  --textColorSlight: #929292;
+  --gap: 20px;
+  --smallGap: calc(var(--gap) / 2.5);
+  --red: #ffadaf;
+}
+
+:host {
+  --borderRadius: 8px;
+  --accentColor: #558b6e;
+  --backgroundColor: #f3f8f2;
+  --boxColor: #ebe9e9;
+  --textColor: #333333;
+  --textColorSlight: #929292;
+  --gap: 20px;
+  --smallGap: calc(var(--gap) / 2.5);
+  --red: #ffadaf;
+}
+
+@font-face {
+  font-family: Rubik-Regular;
+  src: url(fonts/Rubik-Regular.ttf);
+}
+
+@font-face {
+  font-family: Rubik-Bold;
+  src: url(fonts/Rubik-Bold.ttf);
+}
+
+body {
+  background-color: var(--backgroundColor);
+  padding: var(--gap);
+  padding-bottom: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: Rubik-Bold;
+  color: var(--textColor);
+}
+
+a {
+  font-family: Rubik-Regular;
+  color: var(--textColorSlight);
+}

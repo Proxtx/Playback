@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playback</title>
+    <link rel="stylesheet" href="../lib/main.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <p-title></p-title>
+    <div id="buttonGrid">
+      <p-box layout="flexCenter" style="--boxColor: var(--accentColor)">
+        <img src="/lib/img/arrow.svg" />
+        <a style="color: var(--backgroundColor)">Replay</a>
+      </p-box>
+      <p-box layout="flexCenter">
+        <img src="/lib/img/archive.svg" />
+        <a style="color: var(--textColor)">Replay</a>
+      </p-box>
+      <p-box layout="flexCenter" style="--boxColor: var(--red)">
+        <img src="/lib/img/circle.svg" />
+        <a style="color: var(--textColor)">Live</a>
+      </p-box>
+      <p-box layout="flexCenter">
+        <img src="/lib/img/settings.svg" />
+        <a style="color: var(--textColor)">Settings</a>
+      </p-box>
+    </div>
+    <script id="server" src="private/render/linker.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+#box {
+  background-color: var(--boxColor);
+  border-radius: var(--borderRadius);
+  gap: var(--smallGap);
+  padding: var(--gap);
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flexColum {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
