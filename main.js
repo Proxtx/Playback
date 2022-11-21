@@ -1,6 +1,7 @@
 import { listen } from "@proxtx/framework";
 import { setConfig } from "@proxtx/framework/static.js";
 import config from "@proxtx/config";
+import * as _ from "./private/apps.js";
 
 setConfig({
   ignoreParseHtml: ["/lib/components"],
