@@ -3,6 +3,8 @@
   border-radius: var(--borderRadius);
   gap: var(--smallGap);
   padding: var(--gap);
+  position: relative;
+  overflow: hidden;
 }
 
 .flexRow {

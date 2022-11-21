@@ -1,0 +1,61 @@
+#wrap {
+  background-color: var(--secondaryBoxColor);
+  border: 2px solid var(--accentColor);
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: relative;
+}
+
+#left {
+  padding: var(--gap);
+  position: relative;
+}
+
+#right {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  height: 150px;
+}
+
+#right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#time {
+  position: absolute;
+  left: var(--gap);
+  bottom: var(--gap);
+}
+
+#open {
+  --scale: 0.5;
+  --borderRadius: 3px;
+  position: absolute;
+  right: var(--gap);
+  bottom: var(--gap);
+  transform: translateY(25%);
+}
+
+#delete {
+  position: absolute;
+  top: var(--smallGap);
+  right: var(--smallGap);
+  border-radius: 3px;
+  backdrop-filter: blur(5px);
+  padding: calc(var(--smallGap) / 3);
+  height: 20px;
+  width: 20px;
+}
+
+#delete img {
+  width: 100%;
+  height: 100%;
+}

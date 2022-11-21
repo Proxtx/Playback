@@ -11,6 +11,12 @@
       "template": "/components/title/index.html",
       "component": "/components/title/main.js",
       "styles": ["/main.css", "/components/title/style.css"]
+    },
+    "app-event": {
+      "name": "p-app-event",
+      "template": "/components/app-event/index.html",
+      "component": "/components/app-event/main.js",
+      "styles": ["/main.css", "/components/app-event/style.css"]
     }
   }
 }

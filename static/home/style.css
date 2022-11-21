@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: var(--gap);
-  grid-row-gap: var(--gap);
+  grid-column-gap: var(--smallGap);
+  grid-row-gap: var(--smallGap);
+}
+
+.buttonImage {
+  height: 40px;
 }

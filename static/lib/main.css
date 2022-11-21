@@ -3,6 +3,7 @@
   --accentColor: #558b6e;
   --backgroundColor: #f3f8f2;
   --boxColor: #ebe9e9;
+  --secondaryBoxColor: #dee2d6;
   --textColor: #333333;
   --textColorSlight: #929292;
   --gap: 20px;
@@ -15,6 +16,7 @@
   --accentColor: #558b6e;
   --backgroundColor: #f3f8f2;
   --boxColor: #ebe9e9;
+  --secondaryBoxColor: #dee2d6;
   --textColor: #333333;
   --textColorSlight: #929292;
   --gap: 20px;
@@ -55,4 +57,9 @@ h5 {
 a {
   font-family: Rubik-Regular;
   color: var(--textColorSlight);
+}
+
+b {
+  font-family: Rubik-Bold;
+  color: var(--textColor);
 }

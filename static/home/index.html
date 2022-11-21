@@ -12,20 +12,30 @@
     <p-title></p-title>
     <div id="buttonGrid">
       <p-box layout="flexCenter" style="--boxColor: var(--accentColor)">
-        <img src="/lib/img/arrow.svg" />
-        <a style="color: var(--backgroundColor)">Replay</a>
+        <img src="/lib/img/arrow.svg" class="buttonImage" />
+        <div>
+          <a style="color: var(--backgroundColor)">Replay</a>
+          <m-wave color="var(--boxColor)"></m-wave>
+        </div>
       </p-box>
       <p-box layout="flexCenter">
-        <img src="/lib/img/archive.svg" />
-        <a style="color: var(--textColor)">Replay</a>
+        <img src="/lib/img/archive.svg" class="buttonImage" />
+        <div>
+          <a style="color: var(--textColor)">Replay</a> <m-wave></m-wave>
+        </div>
       </p-box>
       <p-box layout="flexCenter" style="--boxColor: var(--red)">
-        <img src="/lib/img/circle.svg" />
-        <a style="color: var(--textColor)">Live</a>
+        <img src="/lib/img/circle.svg" class="buttonImage" />
+        <div>
+          <a style="color: var(--textColor)">Live</a>
+          <m-wave color="var(--textColor)"></m-wave>
+        </div>
       </p-box>
       <p-box layout="flexCenter">
-        <img src="/lib/img/settings.svg" />
-        <a style="color: var(--textColor)">Settings</a>
+        <img src="/lib/img/settings.svg" class="buttonImage" />
+        <div>
+          <a style="color: var(--textColor)">Settings</a> <m-wave></m-wave>
+        </div>
       </p-box>
     </div>
     <script id="server" src="private/render/linker.js"></script>

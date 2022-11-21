@@ -1,0 +1,12 @@
+:host {
+  --borderRadius: 8px;
+  --accentColor: #558b6e;
+  --backgroundColor: #f3f8f2;
+  --boxColor: #ebe9e9;
+  --secondaryBoxColor: #dee2d6;
+  --textColor: #333333;
+  --textColorSlight: #929292;
+  --gap: 20px;
+  --smallGap: calc(var(--gap) / 2.5);
+  --red: #ffadaf;
+}
