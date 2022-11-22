@@ -6,6 +6,8 @@ let eventsWrap = document.getElementById("eventsWrap");
 let playbackId = 1669011837093;
 
 let events = await playback.getEvents(cookie.pwd, playbackId);
+events.sort((a, b) => a.start - b.start);
+
 for (let event of events) {
   let elem = document.createElement("p-event");
   await uiBuilder.ready(elem);

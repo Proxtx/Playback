@@ -3,12 +3,11 @@ import config from "@proxtx/config";
 
 export class PlaybackHandler {
   playback;
-  constructor(location, update = true) {
+  constructor(location) {
     this.location = location;
-    this.update = update;
     return (async () => {
       this.playback = await JSON.parse(await fs.readFile(this.location));
-      this.savePlaybackLoop();
+      this.playback = { events: {} };
       return this;
     })();
   }
@@ -16,6 +15,11 @@ export class PlaybackHandler {
   registerAppEvent(event) {
     let id = Math.floor(Math.random() * 1000000);
     this.playback.events[id] = event;
+    this.savePlayback();
+  }
+
+  deleteAppEvent(appEventId) {
+    delete this.playback.events[appEventId];
     this.savePlayback();
   }
 
@@ -30,18 +34,6 @@ export class PlaybackHandler {
       let appEvent = this.playback.events[id];
       let found = false;
       for (let event of events) {
-        console.log(
-          new Date(
-            Number(event.start) - Number(config.interval)
-          ).toLocaleTimeString(),
-          new Date(Number(appEvent.time)).toLocaleTimeString(),
-          new Date(
-            Number(event.end) + Number(config.interval)
-          ).toLocaleTimeString(),
-          new Date(Number(appEvent.time)).toLocaleTimeString(),
-          Number(event.start) - Number(config.interval) < appEvent.time,
-          Number(event.end) + Number(config.interval) > appEvent.time
-        );
         if (
           Number(event.start) - Number(config.interval) < appEvent.time &&
           Number(event.end) + Number(config.interval) > appEvent.time
@@ -66,13 +58,6 @@ export class PlaybackHandler {
     }
 
     return events;
-  }
-
-  async savePlaybackLoop() {
-    while (this.update) {
-      await this.savePlayback();
-      await new Promise((r) => setTimeout(r, 5 * 60000));
-    }
   }
 
   async savePlayback() {

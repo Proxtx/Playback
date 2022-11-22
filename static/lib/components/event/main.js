@@ -68,7 +68,7 @@ export class Component {
     })();
   }
 
-  loadEvent(playbackId, eventData) {
+  async loadEvent(playbackId, eventData) {
     this.points.innerText = eventData.points;
     let time = new Date(Number(eventData.start))
       .toLocaleTimeString()
@@ -79,15 +79,33 @@ export class Component {
       Number(eventData.start)
     ).toLocaleDateString();
 
+    let appEventList = [];
+
     for (let appEventId of eventData.appEvents) {
-      this.createAppEvent(playbackId, appEventId);
+      appEventList.push(await this.createAppEvent(playbackId, appEventId));
     }
+
+    appEventList.sort((a, b) => {
+      b.component.appEvent.time - a.component.appEvent.time;
+    });
+
+    for (let appEventElement of appEventList) {
+      this.appEventsWrap.appendChild(appEventElement);
+      this.appNames.innerText += appEventElement.component.appEvent.app + ", ";
+    }
+
+    this.appNames.innerText = this.appNames.innerText.substring(
+      0,
+      this.appNames.innerText.length - 1
+    );
   }
 
-  createAppEvent(playbackId, appEventId) {
+  async createAppEvent(playbackId, appEventId) {
     let appEventElement = document.createElement("p-app-event");
     appEventElement.setAttribute("playbackId", playbackId);
     appEventElement.setAttribute("appEventId", appEventId);
-    this.appEventsWrap.appendChild(appEventElement);
+    await uiBuilder.ready(appEventElement);
+    await appEventElement.component.loadAppEvent();
+    return appEventElement;
   }
 }

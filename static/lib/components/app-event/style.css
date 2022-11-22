@@ -49,7 +49,7 @@
   top: var(--smallGap);
   right: var(--smallGap);
   border-radius: 3px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px) brightness(80%);
   padding: calc(var(--smallGap) / 3);
   height: 20px;
   width: 20px;
