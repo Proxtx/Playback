@@ -17,6 +17,12 @@
       "template": "/components/app-event/index.html",
       "component": "/components/app-event/main.js",
       "styles": ["/main.css", "/components/app-event/style.css"]
+    },
+    "media": {
+      "name": "p-media",
+      "template": "/components/media/index.html",
+      "component": "/components/media/main.js",
+      "styles": ["/main.css", "/components/media/style.css"]
     }
   }
 }

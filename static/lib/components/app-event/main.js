@@ -6,6 +6,7 @@ export class Component {
     this.text = this.document.getElementById("text");
     this.img = this.document.getElementById("img");
     this.time = this.document.getElementById("time");
+    this.media = this.document.getElementById("media");
   }
 
   attributeChangedCallback(attribute, oldValue, newValue) {
@@ -28,10 +29,9 @@ export class Component {
       this.playbackId,
       this.appEventId
     );
-    console.log(appEvent);
 
     this.title.innerText = appEvent.app + " - " + appEvent.type;
     this.text.innerText = appEvent.text;
-    this.img.src = "data:image/jpg;base64, " + appEvent.media[0].buffer;
+    this.media.component.display(appEvent.media);
   }
 }
