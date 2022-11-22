@@ -7,7 +7,7 @@ export class Component {
   attributeChangedCallback(attribute, oldValue, newValue) {
     switch (attribute) {
       case "layout":
-        this.box.className = newValue;
+        this.box.classList.add(newValue);
         break;
     }
   }

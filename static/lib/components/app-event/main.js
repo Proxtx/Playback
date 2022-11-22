@@ -33,5 +33,8 @@ export class Component {
     this.title.innerText = appEvent.app + " - " + appEvent.type;
     this.text.innerText = appEvent.text;
     this.media.component.display(appEvent.media);
+    let time = new Date(Number(appEvent.time)).toLocaleTimeString().split(":");
+    time.pop();
+    this.time.innerText = time.join(":");
   }
 }

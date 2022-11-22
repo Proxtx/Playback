@@ -18,6 +18,12 @@
       "component": "/components/app-event/main.js",
       "styles": ["/main.css", "/components/app-event/style.css"]
     },
+    "event": {
+      "name": "p-event",
+      "template": "/components/event/index.html",
+      "component": "/components/event/main.js",
+      "styles": ["/main.css", "/components/event/style.css"]
+    },
     "media": {
       "name": "p-media",
       "template": "/components/media/index.html",

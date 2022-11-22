@@ -14,6 +14,11 @@ export const getAppEvent = async (playbackId, appEventId) => {
   return playback.getAppEvent(appEventId);
 };
 
+export const getEvents = async (playbackId) => {
+  let playback = await getPlayback(playbackId);
+  return playback.getEvents();
+};
+
 const getPlayback = async (playbackId) => {
   if (!playbacks[playbackId])
     playbacks[playbackId] = await new PlaybackHandler(
