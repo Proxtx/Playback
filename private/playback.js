@@ -36,7 +36,7 @@ export class PlaybackHandler {
     });
 
     appEvents.sort((a, b) => {
-      return a.time - b.time;
+      return Number(a.time) - Number(b.time);
     });
 
     return appEvents;

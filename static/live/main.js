@@ -33,10 +33,9 @@ const newAppEventLoop = async () => {
 };
 
 let events = await playback.getAppEvents(cookie.pwd, playbackId);
-for (let i = 2; i < 13; i++)
-  if (events[events.length - i])
-    appEventsHolder.appendChild(
-      await createAppEvent(playbackId, events[events.length - i].id)
-    );
+events.splice(0, events.length - 13 < 0 ? 0 : events.length - 13);
+for (let i = 0; i < events.length - 1; i++)
+  if (events[i])
+    appEventsHolder.appendChild(await createAppEvent(playbackId, events[i].id));
 
 newAppEventLoop();

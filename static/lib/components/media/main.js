@@ -9,6 +9,7 @@ export class Component {
     if (!mediaOptions || mediaOptions.length == 0) {
       this.video.style.display = "none";
       this.img.style.display = "none";
+      return;
     }
     mediaOptions = mediaOptions[0];
     let src = `data: ${mediaOptions.type};base64, ${mediaOptions.buffer}`;
