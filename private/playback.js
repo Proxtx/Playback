@@ -3,11 +3,13 @@ import config from "@proxtx/config";
 
 export class PlaybackHandler {
   playback;
-  constructor(location) {
+  constructor(location, providedPlayback = false) {
     this.location = location;
     return (async () => {
-      this.playback = await JSON.parse(await fs.readFile(this.location));
-      this.playback = { events: {} };
+      this.playback = providedPlayback
+        ? providedPlayback
+        : await JSON.parse(await fs.readFile(this.location));
+      await this.savePlayback();
       return this;
     })();
   }
@@ -25,6 +27,19 @@ export class PlaybackHandler {
 
   getAppEvent(appEventId) {
     return this.playback.events[appEventId];
+  }
+
+  getAppEvents() {
+    let appEvents = [];
+    Object.keys(this.playback.events).forEach((value) => {
+      appEvents.push({ id: value, time: this.playback.events[value].time });
+    });
+
+    appEvents.sort((a, b) => {
+      return a.time - b.time;
+    });
+
+    return appEvents;
   }
 
   getEvents() {
@@ -57,10 +72,20 @@ export class PlaybackHandler {
       }
     }
 
-    return events;
+    let confirmedEvents = [];
+
+    for (let event of events) {
+      if (event.points >= config.pointsRequired) confirmedEvents.push(event);
+    }
+
+    return confirmedEvents;
   }
 
   async savePlayback() {
     await fs.writeFile(this.location, JSON.stringify(this.playback, null, 2));
+  }
+
+  async deletePlayback() {
+    await fs.unlink(this.location);
   }
 }

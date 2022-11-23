@@ -1,0 +1,5 @@
+#appEventsHolder {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--gap);
+}

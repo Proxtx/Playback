@@ -16,7 +16,7 @@
   align-items: center;
 }
 
-.flexColum {
+.flexColumn {
   display: flex;
   flex-direction: column;
 }

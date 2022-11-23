@@ -15,3 +15,17 @@ export const getEvents = async (pwd, playbackId) => {
   if (!auth(pwd)) return;
   return await playbackLoader.getEvents(playbackId);
 };
+
+export const getAppEvents = async (pwd, playbackId) => {
+  if (!auth(pwd)) return;
+  return await playbackLoader.getAppEvents(playbackId);
+};
+
+export const getPlaybacks = async (pwd) => {
+  if (!auth(pwd)) return;
+  return await playbackLoader.getPlaybacks();
+};
+
+export const getLatestPlayback = async (pwd) => {
+  return (await getPlaybacks(pwd))[0].id;
+};

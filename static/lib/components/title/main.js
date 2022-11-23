@@ -8,11 +8,11 @@ export class Component {
   attributeChangedCallback(attribute, oldValue, newValue) {
     switch (attribute) {
       case "title":
-        this.title = newValue;
+        this.title.innerText = newValue;
         break;
 
       case "subtitle":
-        this.subtitle = newValue;
+        this.subtitle.innerText = newValue;
         break;
     }
   }

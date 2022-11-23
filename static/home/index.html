@@ -11,31 +11,33 @@
   <body>
     <p-title></p-title>
     <div id="buttonGrid">
-      <p-box layout="flexCenter" style="--boxColor: var(--accentColor)">
+      <p-box
+        layout="flexCenter"
+        style="--boxColor: var(--accentColor)"
+        onclick="window.replay()"
+      >
+        <m-wave color="var(--boxColor)"></m-wave>
         <img src="/lib/img/arrow.svg" class="buttonImage" />
-        <div>
-          <a style="color: var(--backgroundColor)">Replay</a>
-          <m-wave color="var(--boxColor)"></m-wave>
-        </div>
+        <a style="color: var(--backgroundColor)">Replay</a>
       </p-box>
-      <p-box layout="flexCenter">
+      <p-box layout="flexCenter" onclick="window.link('../archive')">
+        <m-wave></m-wave>
         <img src="/lib/img/archive.svg" class="buttonImage" />
-        <div>
-          <a style="color: var(--textColor)">Replay</a> <m-wave></m-wave>
-        </div>
+        <a style="color: var(--textColor)">Archive</a>
       </p-box>
-      <p-box layout="flexCenter" style="--boxColor: var(--red)">
+      <p-box
+        layout="flexCenter"
+        style="--boxColor: var(--red)"
+        onclick="window.link('../live')"
+      >
+        <m-wave color="var(--textColor)"></m-wave>
         <img src="/lib/img/circle.svg" class="buttonImage" />
-        <div>
-          <a style="color: var(--textColor)">Live</a>
-          <m-wave color="var(--textColor)"></m-wave>
-        </div>
+        <a style="color: var(--textColor)">Live</a>
       </p-box>
-      <p-box layout="flexCenter">
+      <p-box layout="flexCenter" onclick="window.link('../settings')">
+        <m-wave></m-wave>
         <img src="/lib/img/settings.svg" class="buttonImage" />
-        <div>
-          <a style="color: var(--textColor)">Settings</a> <m-wave></m-wave>
-        </div>
+        <a style="color: var(--textColor)">Settings</a>
       </p-box>
     </div>
     <script id="server" src="private/render/linker.js"></script>
