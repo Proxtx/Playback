@@ -29,3 +29,13 @@ export const getPlaybacks = async (pwd) => {
 export const getLatestPlayback = async (pwd) => {
   return (await getPlaybacks(pwd))[0].id;
 };
+
+export const getArchive = async (pwd, playbackId) => {
+  if (!auth(pwd)) return;
+  return playbackLoader.getArchive(playbackId);
+};
+
+export const setArchive = async (pwd, playbackId, archive) => {
+  if (!auth(pwd)) return;
+  playbackLoader.setArchive(playbackId, archive);
+};

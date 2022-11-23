@@ -43,6 +43,17 @@ export const getEvents = async (playbackId) => {
   return playback.getEvents();
 };
 
+export const getArchive = async (playbackId) => {
+  let playback = await getPlayback(playbackId);
+  return playback.playback.archive;
+};
+
+export const setArchive = async (playbackId, archive) => {
+  let playback = await getPlayback(playbackId);
+  playback.playback.archive = archive;
+  await playback.savePlayback();
+};
+
 const getPlayback = async (playbackId) => {
   if (!playbacks[playbackId])
     playbacks[playbackId] = await new PlaybackHandler(
@@ -64,13 +75,12 @@ const managePlaybacks = async () => {
 
   for (let playbackId in playbacks) {
     let playback = await getPlayback(playbackId);
-    if (playback.archive) continue;
-    else if (
+    if (
       new Date(playback.playback.time).toDateString() ==
       new Date().toDateString()
     ) {
       currentPlaybackFound = true;
-    } else {
+    } else if (!playback.playback.archive) {
       await playback.deletePlayback();
       delete playbacks[playbackId];
     }

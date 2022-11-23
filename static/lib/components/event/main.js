@@ -89,6 +89,8 @@ export class Component {
       b.component.appEvent.time - a.component.appEvent.time;
     });
 
+    appEventList.reverse();
+
     for (let appEventElement of appEventList) {
       this.appEventsWrap.appendChild(appEventElement);
       this.appNames.innerText += appEventElement.component.appEvent.app + ", ";
@@ -96,7 +98,7 @@ export class Component {
 
     this.appNames.innerText = this.appNames.innerText.substring(
       0,
-      this.appNames.innerText.length - 1
+      this.appNames.innerText.length - 2
     );
   }
 
