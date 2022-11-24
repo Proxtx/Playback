@@ -101,5 +101,5 @@ const manageLoop = async () => {
   setTimeout(() => manageLoop(), 1000);
 };
 
-await getLatestPlayback();
 await manageLoop();
+await getLatestPlayback();
