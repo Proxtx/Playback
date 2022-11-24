@@ -101,5 +101,11 @@ const manageLoop = async () => {
   setTimeout(() => manageLoop(), 1000);
 };
 
+try {
+  await getLatestPlayback();
+} catch (e) {
+  console.log(
+    "Could not load latest Playback. This is probably the first run."
+  );
+}
 await manageLoop();
-await getLatestPlayback();
