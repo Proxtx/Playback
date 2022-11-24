@@ -1,4 +1,5 @@
 import { playback } from "../lib/apiLoader.js";
+import * as _ from "../lib/guiLoader.js";
 
 let playbackId = await playback.getLatestPlayback(cookie.pwd);
 const appEventsHolder = document.getElementById("appEventsHolder");
