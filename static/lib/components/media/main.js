@@ -12,7 +12,7 @@ export class Component {
       return;
     }
     mediaOptions = mediaOptions[0];
-    let src = `data: ${mediaOptions.type};base64, ${mediaOptions.buffer}`;
+    let src = `data:${mediaOptions.type};base64,${mediaOptions.buffer}`;
     if (mediaOptions.type.split("/")[0] == "image") {
       this.video.style.display = "none";
       this.img.style.display = "unset";

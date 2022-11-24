@@ -14,6 +14,7 @@
 #left {
   padding: var(--gap);
   position: relative;
+  overflow: hidden;
 }
 
 #right {

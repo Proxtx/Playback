@@ -9,6 +9,11 @@ export class Component {
     this.media = this.document.getElementById("media");
     this.right = this.document.getElementById("right");
     this.delete = this.document.getElementById("delete");
+    this.open = this.document.getElementById("open");
+
+    this.open.addEventListener("click", () => {
+      if (this.appEvent.open) window.location.href = this.appEvent.open;
+    });
 
     this.delete.addEventListener("click", () => {
       window.playback.deleteAppEvent(
@@ -51,5 +56,7 @@ export class Component {
     let time = new Date(Number(appEvent.time)).toLocaleTimeString().split(":");
     time.pop();
     this.time.innerText = time.join(":");
+
+    if (!this.appEvent.open) this.open.setAttribute("disabled", "true");
   }
 }
