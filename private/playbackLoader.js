@@ -83,6 +83,8 @@ const managePlaybacks = async () => {
     } else if (!playback.playback.archive) {
       await playback.deletePlayback();
       delete playbacks[playbackId];
+    } else {
+      delete playbacks[playbackId];
     }
   }
 
