@@ -32,7 +32,7 @@ for (let eventIndex in events) {
   if (!date) date = elem.component.date.innerText;
   title.setAttribute(
     "subtitle",
-    `Loading ${eventIndex + 1} of ${events.length}`
+    `Loading ${Number(eventIndex) + 1} of ${events.length}`
   );
   eventsWrap.appendChild(elem);
 }
