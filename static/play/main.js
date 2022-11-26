@@ -22,11 +22,19 @@ archiveCheckbox.addEventListener("change", async () => {
   );
 });
 
-for (let event of events) {
+let date;
+
+for (let eventIndex in events) {
+  let event = events[eventIndex];
   let elem = document.createElement("p-event");
   await uiBuilder.ready(elem);
   await elem.component.loadEvent(playbackId, event);
-  if (title.getAttribute("subtitle") == "Loading")
-    title.setAttribute("subtitle", elem.component.date.innerText);
+  if (!date) date = elem.component.date.innerText;
+  title.setAttribute(
+    "subtitle",
+    `Loading ${eventIndex + 1} of ${events.length}`
+  );
   eventsWrap.appendChild(elem);
 }
+
+title.setAttribute("subtitle", date);
