@@ -25,16 +25,16 @@ archiveCheckbox.addEventListener("change", async () => {
 let date;
 
 for (let eventIndex in events) {
+  title.setAttribute(
+    "subtitle",
+    `Loading ${Number(eventIndex) + 1} of ${events.length}`
+  );
   let event = events[eventIndex];
   let elem = document.createElement("p-event");
   await uiBuilder.ready(elem);
   await elem.component.loadEvent(playbackId, event);
   if (!date) date = elem.component.date.innerText;
-  title.setAttribute(
-    "subtitle",
-    `Loading ${Number(eventIndex) + 1} of ${events.length}`
-  );
   eventsWrap.appendChild(elem);
 }
 
-title.setAttribute("subtitle", date);
+title.setAttribute("subtitle", date ? data : "Date not found.");
