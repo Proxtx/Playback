@@ -37,4 +37,4 @@ for (let eventIndex in events) {
   eventsWrap.appendChild(elem);
 }
 
-title.setAttribute("subtitle", date ? data : "Date not found.");
+title.setAttribute("subtitle", date ? date : "Date not found.");
