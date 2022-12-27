@@ -9,3 +9,8 @@
   height: 100%;
   object-fit: cover;
 }
+
+#text {
+  width: 100%;
+  height: 100%;
+}

@@ -39,4 +39,8 @@ for (let i = 0; i < events.length - 1; i++)
   if (events[i])
     appEventsHolder.appendChild(await createAppEvent(playbackId, events[i].id));
 
+await getNewAppEvent();
+document
+  .getElementById("title")
+  .setAttribute("subtitle", "Watch App Events Happen Live");
 newAppEventLoop();
