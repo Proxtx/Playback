@@ -21,10 +21,9 @@ export class Component {
       this.text.style.display = "none";
       this.img.src = src;
     } else if (mediaOptions.type.split("/")[0] == "text") {
-      console.log(this.text);
       this.video.style.display = "none";
       this.img.style.display = "none";
-      this.text.style.display = "unset";
+      this.text.style.display = "block";
       this.text.innerText = mediaOptions.text;
     } else {
       this.video.style.display = "unset";
