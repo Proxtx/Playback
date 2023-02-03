@@ -1,0 +1,8 @@
+#muiOverwrite {
+  --backgroundColor: #ebe9e9;
+}
+
+#headerWrap {
+  display: flex;
+  gap: var(--contentSpacing);
+}

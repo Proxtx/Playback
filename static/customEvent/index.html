@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Event</title>
+  </head>
+  <body>
+    <p-title title="Custom Event" subtitle="Trigger your own events."></p-title>
+    <p-box>
+      <m-overwrite-container id="muiOverwrite">
+        <div id="headerWrap">
+          <m-text-input
+            id="app"
+            placeholder="App"
+            value="Custom"
+          ></m-text-input>
+          <m-text-input id="title" placeholder="Title"></m-text-input>
+        </div>
+        <br />
+        <m-text-input
+          id="description"
+          placeholder="Description"
+          value="This event was triggered manually."
+          textarea="true"
+        ></m-text-input
+        ><br /><br />
+        <m-text-input
+          id="text"
+          placeholder="Text"
+          textarea="true"
+        ></m-text-input>
+        <br /><br />
+        <m-text-input
+          id="points"
+          placeholder="Points"
+          value="3"
+          number="true"
+        ></m-text-input
+        ><br /><br />
+        <m-button id="send">Send</m-button>
+      </m-overwrite-container>
+    </p-box>
+    <script id="server" src="private/render/linker.js"></script>
+  </body>
+</html>

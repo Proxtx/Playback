@@ -39,3 +39,28 @@ export const setArchive = async (pwd, playbackId, archive) => {
   if (!auth(pwd)) return;
   playbackLoader.setArchive(playbackId, archive);
 };
+
+export const registerCustomEvent = async (
+  pwd,
+  app,
+  title,
+  description,
+  text,
+  points
+) => {
+  if (!auth(pwd)) return;
+
+  playbackLoader.registerAppEvent({
+    app,
+    type: title,
+    text: description,
+    media: [
+      {
+        text,
+        type: "text/",
+      },
+    ],
+    time: Date.now(),
+    points: Number(points),
+  });
+};

@@ -16,4 +16,5 @@
   padding: 6px;
   overflow-y: auto;
   box-sizing: border-box;
+  overflow-x: auto;
 }

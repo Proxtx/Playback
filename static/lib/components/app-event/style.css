@@ -4,7 +4,7 @@
   border-radius: var(--borderRadius);
   overflow: hidden;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 50%);
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -20,8 +20,10 @@
 #right {
   display: flex;
   align-self: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 200px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 #right img {
