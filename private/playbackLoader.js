@@ -100,7 +100,7 @@ const managePlaybacks = async () => {
 
 const manageLoop = async () => {
   await managePlaybacks();
-  setTimeout(() => manageLoop(), 1000);
+  setTimeout(() => manageLoop(), 60000);
 };
 
 try {
