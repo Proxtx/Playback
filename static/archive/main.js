@@ -1,7 +1,10 @@
 import { playback } from "../lib/apiLoader.js";
 
 const archiveGrid = document.getElementById("archiveGrid");
+const favoriteCheckbox = document.getElementById("favoriteCheckbox");
 let playbacks = await playback.getPlaybacks(cookie.pwd);
+let favorites = await playback.getFavorites(cookie.pwd);
+let favoritePlaybacks = playbacks.filter((v) => favorites.includes(v.id));
 
 const createArchiveBox = (playbackData) => {
   const elem = document.createElement("p-box");
@@ -26,3 +29,13 @@ const createArchiveBox = (playbackData) => {
 
 for (let playbackData of playbacks)
   archiveGrid.appendChild(createArchiveBox(playbackData));
+
+favoriteCheckbox.addEventListener("change", () => {
+  archiveGrid.innerHTML = "";
+  if (favoriteCheckbox.component.checked) {
+    for (let playbackData of favoritePlaybacks)
+      archiveGrid.appendChild(createArchiveBox(playbackData));
+  } else
+    for (let playbackData of playbacks)
+      archiveGrid.appendChild(createArchiveBox(playbackData));
+});

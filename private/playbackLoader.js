@@ -43,15 +43,23 @@ export const getEvents = async (playbackId) => {
   return playback.getEvents();
 };
 
-export const getArchive = async (playbackId) => {
-  let playback = await getPlayback(playbackId);
-  return playback.playback.archive;
+export const getFavorite = async (playbackId) => {
+  let favorites = await getFavorites();
+  return favorites.includes(playbackId);
 };
 
-export const setArchive = async (playbackId, archive) => {
-  let playback = await getPlayback(playbackId);
-  playback.playback.archive = archive;
-  await playback.savePlayback();
+export const setFavorite = async (playbackId, favorite) => {
+  let favorites = await getFavorites();
+  if (favorites.includes(playbackId) && !favorite)
+    favorites.splice(favorites.indexOf(playbackId), 1);
+  else if (!favorites.includes(playbackId) && favorite)
+    favorites.push(playbackId);
+
+  await fs.writeFile("favorites.json", JSON.stringify({ favorites }));
+};
+
+export const getFavorites = async () => {
+  return JSON.parse(await fs.readFile("favorites.json", "utf8")).favorites;
 };
 
 const getPlayback = async (playbackId) => {
@@ -80,9 +88,6 @@ const managePlaybacks = async () => {
       new Date().toDateString()
     ) {
       currentPlaybackFound = true;
-    } else if (!playback.playback.archive) {
-      await playback.deletePlayback();
-      delete playbacks[playbackId];
     } else {
       delete playbacks[playbackId];
     }

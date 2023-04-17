@@ -5,20 +5,20 @@ let eventsWrap = document.getElementById("eventsWrap");
 
 let playbackId = new URL(location.href).searchParams.get("id");
 const title = document.getElementById("title");
-const archiveCheckbox = document.getElementById("archiveCheckbox");
+const favoriteCheckbox = document.getElementById("favoriteCheckbox");
 
 let events = await playback.getEvents(cookie.pwd, playbackId);
 events.sort((a, b) => a.start - b.start);
 
-archiveCheckbox.component.checked = await playback.getArchive(
+favoriteCheckbox.component.checked = await playback.getFavorite(
   cookie.pwd,
   playbackId
 );
-archiveCheckbox.addEventListener("change", async () => {
-  await playback.setArchive(
+favoriteCheckbox.addEventListener("change", async () => {
+  await playback.setFavorite(
     cookie.pwd,
     playbackId,
-    archiveCheckbox.component.checked
+    favoriteCheckbox.component.checked
   );
 });
 

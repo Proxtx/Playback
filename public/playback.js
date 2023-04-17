@@ -30,14 +30,19 @@ export const getLatestPlayback = async (pwd) => {
   return (await getPlaybacks(pwd))[0].id;
 };
 
-export const getArchive = async (pwd, playbackId) => {
+export const getFavorite = async (pwd, playbackId) => {
   if (!auth(pwd)) return;
-  return playbackLoader.getArchive(playbackId);
+  return playbackLoader.getFavorite(playbackId);
 };
 
-export const setArchive = async (pwd, playbackId, archive) => {
+export const setFavorite = async (pwd, playbackId, favorite) => {
   if (!auth(pwd)) return;
-  playbackLoader.setArchive(playbackId, archive);
+  playbackLoader.setFavorite(playbackId, favorite);
+};
+
+export const getFavorites = async (pwd) => {
+  if (!auth(pwd)) return;
+  return await playbackLoader.getFavorites();
 };
 
 export const registerCustomEvent = async (
